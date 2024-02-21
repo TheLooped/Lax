@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 
 -- Options
 
+-- TODO: Improve
 local opts = {
    -- Backup
    backup = false, -- creates a backup file
@@ -11,8 +12,16 @@ local opts = {
    undofile = true, -- enable persistent undo
    writebackup = true, -- Make a backup before overwriting a file
 
+   -- Behavior
+   confirm = true, -- Confirm to save changes before exiting modified buffer
+   hidden = true, -- Enable modified buffers
+
    -- Clipboard
    clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+
+   -- Encoding
+   encoding = "utf-8", -- the encoding displayed
+   fileencoding = "utf-8", -- the encoding written to a file
 
    -- Folding
    foldenable = true, -- Enable folding
@@ -44,6 +53,11 @@ local opts = {
    -- Mouse
    mouse = "a", -- Enable mouse support
 
+   -- Performance
+   lazyredraw = true,
+   timeoutlen = 500, -- Time in milliseconds to wait for a mapped sequence to complete.
+   updatetime = 300, -- faster completion
+
    -- Scrolling
    scrolloff = 8, -- Start scrolling when we're 8 lines away from margins
    sidescrolloff = 8, -- Start scrolling horizontally when we're 8 lines away from margins
@@ -54,10 +68,7 @@ local opts = {
    hlsearch = true, -- Highlight search results
    infercase = true, -- Infer case for auto completion
    inccommand = "nosplit", -- preview incremental substitute
-
-   -- Encoding
-   encoding = "utf-8", -- the encoding displayed
-   fileencoding = "utf-8", -- the encoding written to a file
+   incsearch = true, -- Incremental search
 
    -- UI/Appearance
    background = "dark", -- colorschemes that can be light or dark
@@ -85,9 +96,7 @@ local opts = {
    completeopt = { "menu", "menuone", "noselect", "popup" }, -- Options for insert mode completion.
    shortmess = "aoOTIcF", -- Reduce messages
    startofline = false, -- Do not reset cursor to start of line when moving around
-   swapfile = false,
-   timeoutlen = 500, -- Time in milliseconds to wait for a mapped sequence to complete.
-   updatetime = 300, -- faster completion
+   swapfile = false, -- Don't use swapfile
    virtualedit = "block", -- allow going past end of line in visual block mode
 }
 
